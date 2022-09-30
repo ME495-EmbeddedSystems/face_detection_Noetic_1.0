@@ -84,7 +84,7 @@ set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -o0")
 generate_dynamic_reconfigure_options(
   cfg/face_det.cfg
   cfg/face_det_dlib.cfg
-  cfg/face_det_cuda.cfg
+#   cfg/face_det_cuda.cfg
   cfg/face_track.cfg
   #cfg/face_track_cuda.cfg
 )
@@ -141,7 +141,7 @@ include_directories(
 
 ## Declare a cpp executable
 # add_executable(face_detection_node src/face_detection_node.cpp)
-add_executable(face_detection src/face_detection.cpp)
+# add_executable(face_detection src/face_detection.cpp)
 
 #add_executable(face_detection_cuda src/face_detection_cuda.cpp)
 add_executable(face_tracking src/face_tracking.cpp)
@@ -151,7 +151,7 @@ add_executable(face_listener src/face_listener.cpp)
 
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
-add_dependencies(face_detection ${PROJECT_NAME}_gencfg)
+# add_dependencies(face_detection ${PROJECT_NAME}_gencfg)
 add_dependencies(face_tracking ${PROJECT_NAME}_gencfg)
 # add_dependencies(face_detection_node face_detection_generate_messages_cpp)
 #add_dependencies(face_detection_cuda ${PROJECT_NAME}_gencfg)

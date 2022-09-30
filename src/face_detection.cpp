@@ -388,12 +388,12 @@ private:
             cv::Point(0, maxSize),
             cv::Point(maxSize+1, maxSize+20),
             CV_RGB(255, 50 , 50),
-            CV_FILLED);
-          cv::putText(myImage, "min/max size", cv::Point(5, maxSize+15), CV_FONT_NORMAL, 0.5, Scalar(255,255,255),1,1);
+            CV::FILLED);
+          cv::putText(myImage, "min/max size", cv::Point(5, maxSize+15), CV_RAND_NORMAL, 0.5, Scalar(255,255,255),1,1);
 
           // display fps
           string fpsText = "FPS: " + std::to_string((int)fps);
-          cv::putText(myImage, fpsText, cv::Point(25,25), CV_FONT_NORMAL, 0.75, Scalar(255,50,50),1,1);
+          cv::putText(myImage, fpsText, cv::Point(25,25), CV_RAND_NORMAL, 0.75, Scalar(255,50,50),1,1);
         }
 
         return myImage;
@@ -466,7 +466,7 @@ public:
     debug = 0;
     totalFrameCounter = 0;
     totalTime = 0;
-    myflag = CV_HAAR_DO_CANNY_PRUNING;
+    myflag = cv::CASCADE_DO_CANNY_PRUNING;
     windowOnOff = 0;
     totalDetections = 0;
     pixelSwitch = 1;
@@ -538,19 +538,19 @@ public:
     //selecting the correct flag for the
     switch(config.myflag){
       case 0 :
-        myflag = CV_HAAR_SCALE_IMAGE;
+        myflag = cv::CASCADE_SCALE_IMAGE;
         break;
       case 1 :
-        myflag = CV_HAAR_FIND_BIGGEST_OBJECT;
+        myflag = cv::CASCADE_FIND_BIGGEST_OBJECT;
         break;
       case 2 :
-        myflag = CV_HAAR_DO_CANNY_PRUNING;
+        myflag = cv::CASCADE_DO_CANNY_PRUNING;
         break;
       case 3 :
-        myflag = CV_HAAR_DO_ROUGH_SEARCH;
+        myflag = cv::CASCADE_DO_ROUGH_SEARCH;
         break;
       default:
-        myflag = CV_HAAR_SCALE_IMAGE;
+        myflag = cv::CASCADE_SCALE_IMAGE;
         break;
       }
 

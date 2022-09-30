@@ -306,7 +306,7 @@ private:
           features_prev[j].x = features_prev[j].x + mx;
           features_prev[j].y = features_prev[j].y + my;
           if(pixelSwitch == 0 && debug ==3){
-            cv::circle(cv_ptr->image, cv::Point(features_prev[j].x , features_prev[j].y), 1, CV_RGB(255,0,0),CV_FILLED);
+            cv::circle(cv_ptr->image, cv::Point(features_prev[j].x , features_prev[j].y), 1, CV_RGB(255,0,0),cv::FILLED);
           }
         }
 
@@ -332,7 +332,7 @@ private:
         // #######################################################
         for (unsigned j = 0; j < features_next.size(); j++) {
           if(pixelSwitch == 0 && debug ==3){
-            cv::circle(cv_ptr->image, cv::Point(features_next[j].x , features_next[j].y), 1, CV_RGB(255,255,255),CV_FILLED);
+            cv::circle(cv_ptr->image, cv::Point(features_next[j].x , features_next[j].y), 1, CV_RGB(255,255,255),cv::FILLED);
           }
           mvRateX += features_next[j].x - features_prev[j].x;
           mvRateY += features_next[j].y - features_prev[j].y;
@@ -630,12 +630,12 @@ private:
             cv::Point(0, maxSize),
             cv::Point(maxSize+1, maxSize+20),
             CV_RGB(255, 50 , 50),
-            CV_FILLED);
-      cv::putText(myImage, "min/max size", cv::Point(5, maxSize+15), CV_FONT_NORMAL, 0.5, Scalar(255,255,255),1,1);
+            cv::FILLED);
+      cv::putText(myImage, "min/max size", cv::Point(5, maxSize+15), cv::HERSHEY_SIMPLEX, 0.5, Scalar(255,255,255),1,1);
 
       //draw fps numbers
       string fpsText = "FPS: " + std::to_string((int)fps);
-      cv::putText(myImage, fpsText, cv::Point(25,25), CV_FONT_NORMAL, 0.75, Scalar(255,50,50),1,1);
+      cv::putText(myImage, fpsText, cv::Point(25,25), cv::HERSHEY_SIMPLEX, 0.75, Scalar(255,50,50),1,1);
 
     }
 
@@ -662,7 +662,7 @@ private:
               cv::Point((faces[i].x)-1, (faces[i].y+faces[i].height)),
               cv::Point((faces[i].x)+boxSize, (faces[i].y+faces[i].height)+20),
               CV_RGB(50, 255 , 50),
-              CV_FILLED);
+              cv::FILLED);
 
       } else if(lastSeen[i] != 1) {
 
@@ -678,7 +678,7 @@ private:
               cv::Point((faces[i].x)-1, (faces[i].y+faces[i].height)),
               cv::Point((faces[i].x)+boxSize, (faces[i].y+faces[i].height)+20),
               CV_RGB(50, 50 , 255),
-              CV_FILLED);
+              cv::FILLED);
 
       } else {
 
@@ -695,12 +695,12 @@ private:
               cv::Point((faces[i].x)-1, (faces[i].y+faces[i].height)),
               cv::Point((faces[i].x)+boxSize, (faces[i].y+faces[i].height)+20),
               CV_RGB(255, 50 , 50),
-              CV_FILLED);
+              cv::FILLED);
       }
 
 
       // print the ID of the face
-      cv::putText(myImage, std::to_string(faceID[i]), cv::Point(faces[i].x+1,faces[i].y+faces[i].height+15), CV_FONT_NORMAL, 0.5, Scalar(255,255,255),1,1);
+      cv::putText(myImage, std::to_string(faceID[i]), cv::Point(faces[i].x+1,faces[i].y+faces[i].height+15), cv::HERSHEY_SIMPLEX, 0.5, Scalar(255,255,255),1,1);
 
 
 
@@ -717,7 +717,7 @@ private:
     if(x_pos < 0)
       x_pos = 0;
     int y_pos = (myImage.rows < 50) ? (myImage.rows / 2) : 50;
-    cv::putText(myImage, condition_text, cv::Point(x_pos, y_pos), CV_FONT_NORMAL, 1, Scalar(255,255,255),1,1);
+    cv::putText(myImage, condition_text, cv::Point(x_pos, y_pos), cv::HERSHEY_SIMPLEX, 1, Scalar(255,255,255),1,1);
   }
 
   void initialize() {
@@ -767,7 +767,7 @@ public:
     minSize = 13;
     maxSize = 250;
     cascadeValue = 2;
-    myflag = CV_HAAR_DO_CANNY_PRUNING;
+    myflag = cv::CASCADE_DO_CANNY_PRUNING;
 
     // tracking variables
     trackSearchWinSize = 100;
@@ -941,19 +941,19 @@ public:
     // ######################################
     switch(config.myflag){
     case 0 :
-      myflag = CV_HAAR_SCALE_IMAGE;
+      myflag = cv::CASCADE_SCALE_IMAGE;
       break;
     case 1 :
-      myflag = CV_HAAR_FIND_BIGGEST_OBJECT;
+      myflag = cv::CASCADE_FIND_BIGGEST_OBJECT;
       break;
     case 2 :
-      myflag = CV_HAAR_DO_CANNY_PRUNING;
+      myflag = cv::CASCADE_DO_CANNY_PRUNING;
       break;
     case 3 :
-      myflag = CV_HAAR_DO_ROUGH_SEARCH;
+      myflag = cv::CASCADE_DO_ROUGH_SEARCH;
       break;
     default:
-      myflag = CV_HAAR_SCALE_IMAGE;
+      myflag = cv::CASCADE_SCALE_IMAGE;
       break;
     }
 
