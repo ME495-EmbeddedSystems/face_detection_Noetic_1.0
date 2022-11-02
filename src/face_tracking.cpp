@@ -631,11 +631,11 @@ private:
             cv::Point(maxSize+1, maxSize+20),
             CV_RGB(255, 50 , 50),
             cv::FILLED);
-      cv::putText(myImage, "min/max size", cv::Point(5, maxSize+15), cv::HERSHEY_SIMPLEX, 0.5, Scalar(255,255,255),1,1);
+      cv::putText(myImage, "min/max size", cv::Point(5, maxSize+15), cv::FONT_HERSHEY_SIMPLEX, 0.5, Scalar(255,255,255),1,1);
 
       //draw fps numbers
       string fpsText = "FPS: " + std::to_string((int)fps);
-      cv::putText(myImage, fpsText, cv::Point(25,25), cv::HERSHEY_SIMPLEX, 0.75, Scalar(255,50,50),1,1);
+      cv::putText(myImage, fpsText, cv::Point(25,25), cv::FONT_HERSHEY_SIMPLEX, 0.75, Scalar(255,50,50),1,1);
 
     }
 
@@ -700,7 +700,7 @@ private:
 
 
       // print the ID of the face
-      cv::putText(myImage, std::to_string(faceID[i]), cv::Point(faces[i].x+1,faces[i].y+faces[i].height+15), cv::HERSHEY_SIMPLEX, 0.5, Scalar(255,255,255),1,1);
+      cv::putText(myImage, std::to_string(faceID[i]), cv::Point(faces[i].x+1,faces[i].y+faces[i].height+15), cv::FONT_HERSHEY_SIMPLEX, 0.5, Scalar(255,255,255),1,1);
 
 
 
@@ -717,7 +717,7 @@ private:
     if(x_pos < 0)
       x_pos = 0;
     int y_pos = (myImage.rows < 50) ? (myImage.rows / 2) : 50;
-    cv::putText(myImage, condition_text, cv::Point(x_pos, y_pos), cv::HERSHEY_SIMPLEX, 1, Scalar(255,255,255),1,1);
+    cv::putText(myImage, condition_text, cv::Point(x_pos, y_pos), cv::FONT_HERSHEY_SIMPLEX, 1, Scalar(255,255,255),1,1);
   }
 
   void initialize() {

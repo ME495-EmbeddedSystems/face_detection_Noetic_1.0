@@ -388,7 +388,7 @@ private:
             cv::Point(0, maxSize),
             cv::Point(maxSize+1, maxSize+20),
             CV_RGB(255, 50 , 50),
-            CV::FILLED);
+            cv::FILLED);
           cv::putText(myImage, "min/max size", cv::Point(5, maxSize+15), CV_RAND_NORMAL, 0.5, Scalar(255,255,255),1,1);
 
           // display fps

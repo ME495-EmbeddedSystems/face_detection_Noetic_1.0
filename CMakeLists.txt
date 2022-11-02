@@ -113,6 +113,7 @@ catkin_package(
 ## Your package locations should be listed before other locations
 # include_directories(include)
 include_directories(
+  face_detection_Noetic_1.0
   ${catkin_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
 )
@@ -141,7 +142,7 @@ include_directories(
 
 ## Declare a cpp executable
 # add_executable(face_detection_node src/face_detection_node.cpp)
-# add_executable(face_detection src/face_detection.cpp)
+add_executable(face_detection src/face_detection.cpp)
 
 #add_executable(face_detection_cuda src/face_detection_cuda.cpp)
 add_executable(face_tracking src/face_tracking.cpp)
